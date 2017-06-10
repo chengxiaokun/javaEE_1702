@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: cheng
-  Date: 2017/6/7
-  Time: 16:10
+  Date: 2017/6/8
+  Time: 9:59
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,9 +11,13 @@
     <title>Title</title>
 </head>
 <body>
-<h1>进来啦！</h1>
-<p><%=session.getAttribute("nick")%>
-</p>
-<a href="second.jsp">第二页</a>
+<%
+    if (session.getAttribute("nick") == null) {
+        response.sendRedirect("index.jsp");
+    }
+%>
+<h1>第二页。。。</h1>
+<p><%=session.getAttribute("nick")%></p>
+<a href="home.jsp">回到主页</a>
 </body>
 </html>
